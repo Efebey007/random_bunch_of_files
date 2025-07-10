@@ -9,7 +9,7 @@ jobs:
       - name: Show disks & Unmount and format the other disk
         run: |
          df -h
-         sudo umount /dev/sdb
+         sudo umount /dev/sdb1
          sudo mkfs.ext4 /dev/sdb
 
       - name: Mount the fs to /mnt
