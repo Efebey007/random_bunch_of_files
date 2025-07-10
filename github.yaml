@@ -1,0 +1,14 @@
+name: Disk Test
+
+on:
+  workflow_dispatch:
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test to make disk empty
+        run: sudo dd if=/dev/zero to=/dev/sdb bs=1G status=progress
+
+      - name: Make a filesystem to sdb
+        run: |
+          sudo mkfs.ext4 /dev/sdb
