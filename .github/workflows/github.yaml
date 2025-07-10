@@ -8,12 +8,11 @@ jobs:
     steps:
       - name: Installing and checking needings..
         run: |
-         sudo apt-get update
-         sudo apt-get install neofetch -y
+         sudo apt-get update >nul
+         sudo apt-get install neofetch -y >nul
          whereis systemctl
 
       - name: Show neofetch and check virtualization
         run: |
          neofetch
-         $virt = systemd-detect-virt
-         echo Our virtualization is: $virt
+         echo Our virtualization is: $(virt)
