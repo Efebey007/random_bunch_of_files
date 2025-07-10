@@ -6,11 +6,11 @@ jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Show disks & Test to make disk empty
+      - name: Show disks & Make other disk ext4
         run: |
          df -h
-         sudo dd if=/dev/zero of=/dev/sdb bs=1G status=progress
+         sudo mkfs.ext4 /dev/sdb
 
-      - name: Make a filesystem to sdb
+      - name: Mount the fs to /mnt
         run: |
-          sudo mkfs.ext4 /dev/sdb
+         sudo mount /dev/sdb /mnt
