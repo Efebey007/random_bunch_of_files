@@ -6,9 +6,10 @@ jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Show disks & Unmount and format the other disk
+      - name: Show disks & Unmount and turn off swap also format the other disk
         run: |
          df -h
+         sudo swapoff /mnt/swapfile
          sudo umount /dev/sdb1
          sudo mkfs.ext4 /dev/sdb
 
