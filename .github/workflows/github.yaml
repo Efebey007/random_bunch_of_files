@@ -15,4 +15,4 @@ jobs:
       - name: Show neofetch and check virtualization
         run: |
          neofetch
-         echo Our virtualization is: $(virt)
+         echo Our virtualization is: $(systemd-detect-virt)
