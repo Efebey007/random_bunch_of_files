@@ -10,10 +10,10 @@ jobs:
         run: |
          sudo apt-get update
          sudo apt-get install neofetch -y
-         whereis systemd-detect-virt
+         whereis systemctl
 
       - name: Show neofetch and check virtualization
         run: |
          neofetch
-         $virt=systemd-detect-virt
+         $virt = systemd-detect-virt
          echo Our virtualization is: $virt
