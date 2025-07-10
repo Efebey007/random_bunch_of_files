@@ -1,4 +1,4 @@
-name: Disk Test
+name: Neofetch & Virtualization Check!
 
 on:
   workflow_dispatch:
@@ -6,13 +6,14 @@ jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Show disks & Unmount and turn off swap also format the other disk
+      - name: Installing and checking needings..
         run: |
-         df -h
-         sudo swapoff /mnt/swapfile
-         sudo umount /dev/sdb1
-         sudo mkfs.ext4 /dev/sdb
+         sudo apt update >nul
+         sudo apt install neofetch -y >nul
+         whereis systemd-detect-virt
 
       - name: Mount the fs to /mnt
         run: |
-         sudo mount /dev/sdb /mnt
+         neofetch
+         $virt=systemd-detect-virt
+         echo Our virtualization is: $virt
