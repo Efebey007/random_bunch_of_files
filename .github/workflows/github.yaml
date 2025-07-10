@@ -6,8 +6,10 @@ jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test to make disk empty
-        run: sudo dd if=/dev/zero to=/dev/sdb bs=1G status=progress
+      - name: Show disks & Test to make disk empty
+        run: |
+         lsblk
+         sudo dd if=/dev/zero of=/dev/sdb bs=1G status=progress
 
       - name: Make a filesystem to sdb
         run: |
